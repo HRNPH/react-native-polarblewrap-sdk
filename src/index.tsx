@@ -17,6 +17,18 @@ const PolarblewrapSdk = NativeModules.PolarblewrapSdk
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return PolarblewrapSdk.multiply(a, b);
+class ReactPolarblewrapSdk {
+  static multiply(a: number, b: number) {
+    return PolarblewrapSdk.multiply(a, b);
+  }
+
+  static connectToDevice(deviceID: string) {
+    return PolarblewrapSdk.connectToDevice(deviceID);
+  }
+
+  static disconnectFromDevice(deviceID: string) {
+    return PolarblewrapSdk.disconnectFromDevice(deviceID);
+  }
 }
+
+export default ReactPolarblewrapSdk;
