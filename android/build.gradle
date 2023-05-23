@@ -5,6 +5,7 @@ buildscript {
   repositories {
     google()
     mavenCentral()
+    maven { url 'https://jitpack.io' }
   }
 
   dependencies {
@@ -64,9 +65,11 @@ android {
 repositories {
   mavenCentral()
   google()
+  maven { url 'https://jitpack.io' }
 }
 
 def kotlin_version = getExtOrDefault("kotlinVersion")
+def polar_sdk_version = getExtOrDefault("PolarsdkVersion")
 
 dependencies {
   // For < 0.71, this will be from the local maven repo
@@ -74,6 +77,9 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation "com.github.polarofficial:polar-ble-sdk:${polar_sdk_version}"
+  implementation "io.reactivex.rxjava3:rxjava:3.1.6"
+  implementation "io.reactivex.rxjava3:rxandroid:3.0.2"
 }
 
 if (isNewArchitectureEnabled()) {
